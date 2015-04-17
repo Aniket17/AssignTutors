@@ -1,0 +1,148 @@
+﻿
+<script src="~/Content/js/jquery-1.9.1.min.js"></script>
+<script src="~/Content/js/jquery-calx-1.1.9.min.js"></script>
+
+<div id="calculator" style="padding-top: 80px">
+    <h3>Choose Your Assignment Package</h3>
+    <form id="calx">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Type Of Assignment :</td>
+                    <td>
+                        <select name="proc" id="proc">
+                            <option value="0" selected="">-- Select Type of assignment --</option>
+                            <option value="1">Essay</option>
+                            <option value="1">Term Paper</option>
+                            <option value="2">Research Paper</option>
+                            <option value="3">Coursework</option>
+                            <option value="4">Book Report</option>
+                            <option value="5">Book Review</option>
+                            <option value="6">Movie Review</option>
+                            <option value="7">Research Summary</option>
+                            <option value="8">Dissertation</option>
+                            <option value="9">Thesis</option>
+                            <option value="10">Thesis/Dissertation Proposal</option>
+                            <option value="11">Research Proposal</option>
+                            <option value="12">Dissertation Chapter - Abstract</option>
+                            <option value="13">Dissertation Chapter - Introduction Chapter</option>
+                            <option value="14">Dissertation Chapter - Literature Review</option>
+                            <option value="15">Dissertation Chapter - Methodology</option>
+                            <option value="16">Dissertation Chapter - Results</option>
+                            <option value="17">Dissertation Chapter - Discussion</option>
+                            <option value="18">Dissertation Services - Editing</option>
+                            <option value="19">Dissertation Services - Proof reading</option>
+                            <option value="20">Formatting</option>
+                            <option value="21">Addmission Services - Addmission Essay</option>
+                            <option value="22">Addmission Services - Scholarship Essay</option>
+                            <option value="23">Addmission Services - Personal Statement</option>
+                            <option value="24">Addmission Services - Editing</option>
+                            <option value="25">Editing</option>
+                            <option value="26">Proof reading</option>
+                            <option value="27">Case Study</option>
+                            <option value="28">Lab Report</option>
+                            <option value="29">Speech/Presentation</option>
+                            <option value="30">Math/Physics/Economics/Statistics Problems</option>
+                            <option value="31">Article</option>
+                            <option value="32">Article Critique</option>
+                            <option value="33">Annotated Bibliography</option>
+                            <option value="34">Reaction Paper</option>
+                            <option value="35">Multiple Choice Questions (Non-time-framed)</option>
+                            <option value="36">Multiple Choice Questions (Time-framed)</option>
+                            <option value="37">Statistics Project</option>
+                            <option value="38">PowerPoint Presentation</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Urgency :</td>
+                    <td>
+
+                        <select name="ram" id="ram">
+                            <option value="0" selected="selected">-- Select Urgency --</option>
+                            <option value="30">30 days</option>
+                            <option value="20">20 days</option>
+                            <option value="10">10 days</option>
+                            <option value="7">7 days</option>
+                            <option value="6">6 days</option>
+                            <option value="5">5 days</option>
+                            <option value="4">4 days</option>
+                            <option value="3">3 days</option>
+                            <option value="2">2 days</option>
+                            <option value="1">1 day</option>
+                        </select>
+                    </td>
+                </tr>
+            <tr>
+                <td>Number of pages :</td>
+                <td>
+
+                    <select name="hdd" id="hdd">
+                        <option value="0" selected="">-- Select Number of pages --</option>
+                        <option value="1">1 page(s) / 250 words</option>
+                        <option value="2">2 page(s) / 500 words</option>
+                        <option value="3">3 page(s) / 750 words</option>
+                        <option value="4">4 page(s) / 1000 words</option>
+                        <option value="5">5 page(s) / 1250 words</option>
+                        <option value="6">6 page(s) / 1500 words</option>
+                        <option value="7">7 page(s) / 1750 words</option>
+                        <option value="8">8 page(s) / 2000 words</option>
+                        <option value="9">9 page(s) / 2250 words</option>
+                        <option value="10">10 page(s) / 2500 words</option>
+                        <option value="11">11 page(s) / 2750 words</option>
+                        <option value="12">12 page(s) / 3000 words</option>
+                        <option value="13">13 page(s) / 3250 words</option>
+                        <option value="14">14 page(s) / 3500 words</option>
+                        <option value="15">15 page(s) / 3750 words</option>
+                        <option value="16">16 page(s) / 4000 words</option>
+                        <option value="17">17 page(s) / 4250 words</option>
+                        <option value="18">18 page(s) / 4500 words</option>
+                        <option value="19">19 page(s) / 4750 words</option>
+                        <option value="20">20 page(s) / 5000 words</option>
+                        <option value="21">21 page(s) / 5250 words</option>
+                        <option value="22">22 page(s) / 5500 words</option>
+                        <option value="23">23 page(s) / 5750 words</option>
+                        <option value="24">24 page(s) / 6000 words</option>
+                        <option value="25">25 page(s) / 6250 words</option>
+                        <option value="26">26 page(s) / 6500 words</option>
+                        <option value="27">27 page(s) / 6750 words</option>
+                        <option value="28">28 page(s) / 7000 words</option>
+                        <option value="29">29 page(s) / 7250 words</option>
+                        <option value="30">30 page(s) / 7500 words</option>
+                        <option value="31">31 page(s) / 7750 words</option>
+                        <option value="32">32 page(s) / 8000 words</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Level : </td>
+                <td>
+                    <select name="level"  id="level">
+                        <option value="0">-- Select Level --</option>
+                        <option value="1">HIGH SCHOOL</option>
+                        <option value="2">UNDERGRADUATE</option>
+                        <option value="3">MASTER</option>
+                        <option value="5">PHD</option>
+                    </select>
+
+                </td>
+
+            </tr>
+                <tr>
+                    <td>Total Price :</td>
+                    <td id="total_price" data-format="$ 0,0[.]00" data-formula="$hdd*$proc*$ram*$level"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+
+</div>
+
+
+<script type="text/javascript">
+  
+        $('#calx').calx();
+
+</script>

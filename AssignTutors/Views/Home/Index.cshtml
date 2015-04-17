@@ -1,0 +1,98 @@
+﻿
+
+
+<style>
+    /* This only works with JavaScript,
+       if it's not present, don't show loader */
+    .no-js #loader { display: none;  }
+    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+</style>
+
+<img src="../../Content/img/loading.gif" id="loader">
+
+<!-- Navigation -->
+
+@{Html.RenderPartial("~/Views/Shared/_Navigation.cshtml");}
+<!-- Header -->
+@{Html.RenderPartial("~/Views/Shared/_Header.cshtml");}
+
+<!-- About Section -->
+@{ Html.RenderPartial("~/Views/Shared/_About.cshtml"); }
+
+<!-- Portfolio Grid Section -->
+@{ Html.RenderPartial("~/Views/Shared/_Portfolio.cshtml"); }
+<!-- Contact Section -->
+
+    @{ Html.RenderPartial("~/Views/Shared/_PriceCalculator.cshtml"); }
+
+@{ Html.RenderPartial("~/Views/Shared/_Contact.cshtml"); }
+
+<!-- Footer -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-md-4">
+                    <h3>Address</h3>
+
+                    <p class="footer-content"> Plot No:5-7, Nandikar's Mala, Vidya Nagar,Opp Vasantdada Hsg. <br/>
+                        Miraj,
+                        Maharashtra, India</p>
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3 class="footer-title">Around the Web</h3>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="https://www.facebook.com/lhministries" target="_blank"
+                               class="btn-social btn-outline"><i
+                                    class="fa fa-fw fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-social btn-outline" target="_blank"><i
+                                    class="fa fa-fw fa-google-plus"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.youtube.com/channel/UC-vE37obiSy__dlqnZKXI1w/feed"
+                               target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-youtube"></i></a>
+                        </li>
+                        <!--  <li>
+                              <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                          </li>
+                          <li>
+                              <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
+                          </li>-->
+                    </ul>
+                </div>
+                <div class="footer-col col-md-4">
+                    <h3>Our Mission</h3>
+
+                    <p class="footer-content">Our mission is to guide people of all backgrounds into a
+                        personal relationship with Jesus Christ.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; Living Hope Ministries
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visble-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+
+<!-- Portfolio Modals -->
+@{Html.RenderPartial("~/Views/Shared/_PortfolioSection.cshtml");}
+
+
+
+
