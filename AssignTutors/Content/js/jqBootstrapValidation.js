@@ -274,9 +274,7 @@
 
             validatorNamesToInspect = newValidatorNamesToInspect;
 
-          } while (validatorNamesToInspect.length > 0)
-
-          // =============================================================
+          } while (validatorNamesToInspect.length > 0); // =============================================================
           //                                       SET UP VALIDATOR ARRAYS
           // =============================================================
 

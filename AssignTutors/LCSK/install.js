@@ -46,8 +46,7 @@
         }
 
         $('#save-button').data('id', data);
-    }
-
+    };
     myHub.client.adminResult = function (state, data) {
         if (state) {
             $('#login').hide();

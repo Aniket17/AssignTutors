@@ -228,7 +228,7 @@ header .intro-text .name {
    /* text-transform: uppercase;*/
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1em;
-    /*font-weight: 600;*/
+    font-weight: 600;
     color: #233140;
 }
 
@@ -243,7 +243,7 @@ header .intro-text .skills {
 }
 @media(min-width:768px) {
     header .container {
-        padding-top: 100px;
+        padding-top: 200px;
         padding-bottom: 100px;
     }
 
@@ -360,7 +360,7 @@ section.success {
     right: 0;
     margin: 0 0 15px;
 }
-/*
+
 #loading-img{
     background: url("../img/loading.gif") no-repeat center ;
     height: 100px;
@@ -374,7 +374,7 @@ section.success {
 
 
 }
-*/
+
 
 .quote{
     color: #1addb6;

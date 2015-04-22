@@ -234,8 +234,7 @@ var defaultConfig = {
                     return $$[$0 - 1];
                     break;
                 case 2:
-                    this.$ = sheet.getVariable($$[$0])
-
+                    this.$ = sheet.getVariable($$[$0]);
                     break;
                 case 3:
                     this.$ = true;
@@ -1767,9 +1766,9 @@ var defaultConfig = {
         },
         parseError: function parseError(str, hash) {
             if (hash.recoverable) {
-                this.trace(str)
+                this.trace(str);
             } else {
-                throw new Error(str)
+                throw new Error(str);
             }
         },
         parse: function parse(input) {
@@ -1790,42 +1789,42 @@ var defaultConfig = {
             this.yy.lexer = this.lexer;
             this.yy.parser = this;
             if (typeof this.lexer.yylloc == "undefined") {
-                this.lexer.yylloc = {}
+                this.lexer.yylloc = {};
             }
             var yyloc = this.lexer.yylloc;
             lstack.push(yyloc);
             var ranges = this.lexer.options && this.lexer.options.ranges;
             if (typeof this.yy.parseError === "function") {
-                this.parseError = this.yy.parseError
+                this.parseError = this.yy.parseError;
             } else {
-                this.parseError = Object.getPrototypeOf(this).parseError
+                this.parseError = Object.getPrototypeOf(this).parseError;
             }
 
             function popStack(n) {
                 stack.length = stack.length - 2 * n;
                 vstack.length = vstack.length - n;
-                lstack.length = lstack.length - n
+                lstack.length = lstack.length - n;
             }
 
             function lex() {
                 var token;
                 token = self.lexer.lex() || EOF;
                 if (typeof token !== "number") {
-                    token = self.symbols_[token] || token
+                    token = self.symbols_[token] || token;
                 }
-                return token
+                return token;
             }
             var symbol, preErrorSymbol, state, action, a, r, yyval = {},
                 p, len, newState, expected;
             while (true) {
                 state = stack[stack.length - 1];
                 if (this.defaultActions[state]) {
-                    action = this.defaultActions[state]
+                    action = this.defaultActions[state];
                 } else {
                     if (symbol === null || typeof symbol == "undefined") {
-                        symbol = lex()
+                        symbol = lex();
                     }
-                    action = table[state] && table[state][symbol]
+                    action = table[state] && table[state][symbol];
                 }
                 _handle_error: if (typeof action === "undefined" || !action.length || !action[0]) {
                         var error_rule_depth;
@@ -1836,14 +1835,14 @@ var defaultConfig = {
                             var depth = 0;
                             for (;;) {
                                 if (TERROR.toString() in table[state]) {
-                                    return depth
+                                    return depth;
                                 }
                                 if (state === 0 || stack_probe < 2) {
-                                    return false
+                                    return false;
                                 }
                                 stack_probe -= 2;
                                 state = stack[stack_probe];
-                                ++depth
+                                ++depth;
                             }
                         }
                         if (!recovering) {
@@ -1851,13 +1850,13 @@ var defaultConfig = {
                             expected = [];
                             for (p in table[state]) {
                                 if (this.terminals_[p] && p > TERROR) {
-                                    expected.push("'" + this.terminals_[p] + "'")
+                                    expected.push("'" + this.terminals_[p] + "'");
                                 }
                             }
                             if (this.lexer.showPosition) {
-                                errStr = "Parse error on line " + (yylineno + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + expected.join(", ") + ", got '" + (this.terminals_[symbol] || symbol) + "'"
+                                errStr = "Parse error on line " + (yylineno + 1) + ":\n" + this.lexer.showPosition() + "\nExpecting " + expected.join(", ") + ", got '" + (this.terminals_[symbol] || symbol) + "'";
                             } else {
-                                errStr = "Parse error on line " + (yylineno + 1) + ": Unexpected " + (symbol == EOF ? "end of input" : "'" + (this.terminals_[symbol] || symbol) + "'")
+                                errStr = "Parse error on line " + (yylineno + 1) + ": Unexpected " + (symbol == EOF ? "end of input" : "'" + (this.terminals_[symbol] || symbol) + "'");
                             }
                             this.parseError(errStr, {
                                 text: this.lexer.match,
@@ -1866,32 +1865,32 @@ var defaultConfig = {
                                 loc: yyloc,
                                 expected: expected,
                                 recoverable: error_rule_depth !== false
-                            })
+                            });
                         } else if (preErrorSymbol !== EOF) {
-                            error_rule_depth = locateNearestErrorRecoveryRule(state)
+                            error_rule_depth = locateNearestErrorRecoveryRule(state);
                         }
                         if (recovering == 3) {
                             if (symbol === EOF || preErrorSymbol === EOF) {
-                                throw new Error(errStr || "Parsing halted while starting to recover from another error.")
+                                throw new Error(errStr || "Parsing halted while starting to recover from another error.");
                             }
                             yyleng = this.lexer.yyleng;
                             yytext = this.lexer.yytext;
                             yylineno = this.lexer.yylineno;
                             yyloc = this.lexer.yylloc;
-                            symbol = lex()
+                            symbol = lex();
                         }
                         if (error_rule_depth === false) {
-                            throw new Error(errStr || "Parsing halted. No suitable error recovery rule available.")
+                            throw new Error(errStr || "Parsing halted. No suitable error recovery rule available.");
                         }
                         popStack(error_rule_depth);
                         preErrorSymbol = symbol == TERROR ? null : symbol;
                         symbol = TERROR;
                         state = stack[stack.length - 1];
                         action = table[state] && table[state][TERROR];
-                        recovering = 3
-                    }
+                        recovering = 3;
+                }
                 if (action[0] instanceof Array && action.length > 1) {
-                    throw new Error("Parse Error: multiple actions possible at state: " + state + ", token: " + symbol)
+                    throw new Error("Parse Error: multiple actions possible at state: " + state + ", token: " + symbol);
                 }
                 switch (action[0]) {
                     case 1:
@@ -1906,11 +1905,11 @@ var defaultConfig = {
                             yylineno = this.lexer.yylineno;
                             yyloc = this.lexer.yylloc;
                             if (recovering > 0) {
-                                recovering--
+                                recovering--;
                             }
                         } else {
                             symbol = preErrorSymbol;
-                            preErrorSymbol = null
+                            preErrorSymbol = null;
                         }
                         break;
                     case 2:
@@ -1923,16 +1922,16 @@ var defaultConfig = {
                             last_column: lstack[lstack.length - 1].last_column
                         };
                         if (ranges) {
-                            yyval._$.range = [lstack[lstack.length - (len || 1)].range[0], lstack[lstack.length - 1].range[1]]
+                            yyval._$.range = [lstack[lstack.length - (len || 1)].range[0], lstack[lstack.length - 1].range[1]];
                         }
                         r = this.performAction.apply(yyval, [yytext, yyleng, yylineno, this.yy, action[1], vstack, lstack].concat(args));
                         if (typeof r !== "undefined") {
-                            return r
+                            return r;
                         }
                         if (len) {
                             stack = stack.slice(0, -1 * len * 2);
                             vstack = vstack.slice(0, -1 * len);
-                            lstack = lstack.slice(0, -1 * len)
+                            lstack = lstack.slice(0, -1 * len);
                         }
                         stack.push(this.productions_[action[1]][0]);
                         vstack.push(yyval.$);
@@ -1941,10 +1940,10 @@ var defaultConfig = {
                         stack.push(newState);
                         break;
                     case 3:
-                        return true
+                        return true;
                 }
             }
-            return true
+            return true;
         }
     };
     /* generated by jison-lex 0.2.1 */
@@ -1956,9 +1955,9 @@ var defaultConfig = {
             parseError: function parseError(str, hash) {
                 "use strict";
                 if (this.yy.parser) {
-                    this.yy.parser.parseError(str, hash)
+                    this.yy.parser.parseError(str, hash);
                 } else {
-                    throw new Error(str)
+                    throw new Error(str);
                 }
             },
 
@@ -1977,10 +1976,10 @@ var defaultConfig = {
                     last_column: 0
                 };
                 if (this.options.ranges) {
-                    this.yylloc.range = [0, 0]
+                    this.yylloc.range = [0, 0];
                 }
                 this.offset = 0;
-                return this
+                return this;
             },
 
             // consumes and returns one char from the input
@@ -1995,15 +1994,15 @@ var defaultConfig = {
                 var lines = ch.match(/(?:\r\n?|\n).*/g);
                 if (lines) {
                     this.yylineno++;
-                    this.yylloc.last_line++
+                    this.yylloc.last_line++;
                 } else {
-                    this.yylloc.last_column++
+                    this.yylloc.last_column++;
                 }
                 if (this.options.ranges) {
-                    this.yylloc.range[1] ++
+                    this.yylloc.range[1] ++;
                 }
                 this._input = this._input.slice(1);
-                return ch
+                return ch;
             },
 
             // unshifts one char (or a string) into the input
@@ -2018,7 +2017,7 @@ var defaultConfig = {
                 this.match = this.match.substr(0, this.match.length - 1);
                 this.matched = this.matched.substr(0, this.matched.length - 1);
                 if (lines.length - 1) {
-                    this.yylineno -= lines.length - 1
+                    this.yylineno -= lines.length - 1;
                 }
                 var r = this.yylloc.range;
                 this.yylloc = {
@@ -2028,45 +2027,45 @@ var defaultConfig = {
                     last_column: lines ? (lines.length === oldLines.length ? this.yylloc.first_column : 0) + oldLines[oldLines.length - lines.length].length - lines[0].length : this.yylloc.first_column - len
                 };
                 if (this.options.ranges) {
-                    this.yylloc.range = [r[0], r[0] + this.yyleng - len]
+                    this.yylloc.range = [r[0], r[0] + this.yyleng - len];
                 }
                 this.yyleng = this.yytext.length;
-                return this
+                return this;
             },
 
             // When called from action, caches matched text and appends it on next action
             more: function() {
                 "use strict";
                 this._more = true;
-                return this
+                return this;
             },
 
             // When called from action, signals the lexer that this rule fails to match the input, so the next matching rule (regex) should be tested instead.
             reject: function() {
                 "use strict";
                 if (this.options.backtrack_lexer) {
-                    this._backtrack = true
+                    this._backtrack = true;
                 } else {
                     return this.parseError("Lexical error on line " + (this.yylineno + 1) + ". You can only invoke reject() in the lexer when the lexer is of the backtracking persuasion (options.backtrack_lexer = true).\n" + this.showPosition(), {
                         text: "",
                         token: null,
                         line: this.yylineno
-                    })
+                    });
                 }
-                return this
+                return this;
             },
 
             // retain first n characters of the match
             less: function(n) {
                 "use strict";
-                this.unput(this.match.slice(n))
+                this.unput(this.match.slice(n));
             },
 
             // displays already matched input, i.e. for error messages
             pastInput: function() {
                 "use strict";
                 var past = this.matched.substr(0, this.matched.length - this.match.length);
-                return (past.length > 20 ? "..." : "") + past.substr(-20).replace(/\n/g, "")
+                return (past.length > 20 ? "..." : "") + past.substr(-20).replace(/\n/g, "");
             },
 
             // displays upcoming input, i.e. for error messages
@@ -2074,9 +2073,9 @@ var defaultConfig = {
                 "use strict";
                 var next = this.match;
                 if (next.length < 20) {
-                    next += this._input.substr(0, 20 - next.length)
+                    next += this._input.substr(0, 20 - next.length);
                 }
-                return (next.substr(0, 20) + (next.length > 20 ? "..." : "")).replace(/\n/g, "")
+                return (next.substr(0, 20) + (next.length > 20 ? "..." : "")).replace(/\n/g, "");
             },
 
             // displays the character position where the lexing error occurred, i.e. for error messages
@@ -2084,7 +2083,7 @@ var defaultConfig = {
                 "use strict";
                 var pre = this.pastInput();
                 var c = new Array(pre.length + 1).join("-");
-                return pre + this.upcomingInput() + "\n" + c + "^"
+                return pre + this.upcomingInput() + "\n" + c + "^";
             },
 
             // test the lexed token: return FALSE when not a match, otherwise return token
@@ -2113,12 +2112,12 @@ var defaultConfig = {
                         done: this.done
                     };
                     if (this.options.ranges) {
-                        backup.yylloc.range = this.yylloc.range.slice(0)
+                        backup.yylloc.range = this.yylloc.range.slice(0);
                     }
                 }
                 lines = match[0].match(/(?:\r\n?|\n).*/g);
                 if (lines) {
-                    this.yylineno += lines.length
+                    this.yylineno += lines.length;
                 }
                 this.yylloc = {
                     first_line: this.yylloc.last_line,
@@ -2131,7 +2130,7 @@ var defaultConfig = {
                 this.matches = match;
                 this.yyleng = this.yytext.length;
                 if (this.options.ranges) {
-                    this.yylloc.range = [this.offset, this.offset += this.yyleng]
+                    this.yylloc.range = [this.offset, this.offset += this.yyleng];
                 }
                 this._more = false;
                 this._backtrack = false;
@@ -2139,32 +2138,32 @@ var defaultConfig = {
                 this.matched += match[0];
                 token = this.performAction.call(this, this.yy, this, indexed_rule, this.conditionStack[this.conditionStack.length - 1]);
                 if (this.done && this._input) {
-                    this.done = false
+                    this.done = false;
                 }
                 if (token) {
-                    return token
+                    return token;
                 } else if (this._backtrack) {
                     for (var k in backup) {
-                        this[k] = backup[k]
+                        this[k] = backup[k];
                     }
-                    return false
+                    return false;
                 }
-                return false
+                return false;
             },
 
             // return next match in input
             next: function() {
                 "use strict";
                 if (this.done) {
-                    return this.EOF
+                    return this.EOF;
                 }
                 if (!this._input) {
-                    this.done = true
+                    this.done = true;
                 }
                 var token, match, tempMatch, index;
                 if (!this._more) {
                     this.yytext = "";
-                    this.match = ""
+                    this.match = "";
                 }
                 var rules = this._currentRules();
                 for (var i = 0; i < rules.length; i++) {
@@ -2175,33 +2174,33 @@ var defaultConfig = {
                         if (this.options.backtrack_lexer) {
                             token = this.test_match(tempMatch, rules[i]);
                             if (token !== false) {
-                                return token
+                                return token;
                             } else if (this._backtrack) {
                                 match = false;
-                                continue
+                                continue;
                             } else {
-                                return false
+                                return false;
                             }
                         } else if (!this.options.flex) {
-                            break
+                            break;
                         }
                     }
                 }
                 if (match) {
                     token = this.test_match(match, rules[index]);
                     if (token !== false) {
-                        return token
+                        return token;
                     }
-                    return false
+                    return false;
                 }
                 if (this._input === "") {
-                    return this.EOF
+                    return this.EOF;
                 } else {
                     return this.parseError("Lexical error on line " + (this.yylineno + 1) + ". Unrecognized text.\n" + this.showPosition(), {
                         text: "",
                         token: null,
                         line: this.yylineno
-                    })
+                    });
                 }
             },
 
@@ -2210,16 +2209,16 @@ var defaultConfig = {
                 "use strict";
                 var r = this.next();
                 if (r) {
-                    return r
+                    return r;
                 } else {
-                    return this.lex()
+                    return this.lex();
                 }
             },
 
             // activates a new lexer condition state (pushes the new lexer condition state onto the condition stack)
             begin: function begin(condition) {
                 "use strict";
-                this.conditionStack.push(condition)
+                this.conditionStack.push(condition);
             },
 
             // pop the previously active lexer condition state off the condition stack
@@ -2227,9 +2226,9 @@ var defaultConfig = {
                 "use strict";
                 var n = this.conditionStack.length - 1;
                 if (n > 0) {
-                    return this.conditionStack.pop()
+                    return this.conditionStack.pop();
                 } else {
-                    return this.conditionStack[0]
+                    return this.conditionStack[0];
                 }
             },
 
@@ -2237,9 +2236,9 @@ var defaultConfig = {
             _currentRules: function _currentRules() {
                 "use strict";
                 if (this.conditionStack.length && this.conditionStack[this.conditionStack.length - 1]) {
-                    return this.conditions[this.conditionStack[this.conditionStack.length - 1]].rules
+                    return this.conditions[this.conditionStack[this.conditionStack.length - 1]].rules;
                 } else {
-                    return this.conditions["INITIAL"].rules
+                    return this.conditions["INITIAL"].rules;
                 }
             },
 
@@ -2248,22 +2247,22 @@ var defaultConfig = {
                 "use strict";
                 n = this.conditionStack.length - 1 - Math.abs(n || 0);
                 if (n >= 0) {
-                    return this.conditionStack[n]
+                    return this.conditionStack[n];
                 } else {
-                    return "INITIAL"
+                    return "INITIAL";
                 }
             },
 
             // alias for begin(condition)
             pushState: function pushState(condition) {
                 "use strict";
-                this.begin(condition)
+                this.begin(condition);
             },
 
             // return the number of states currently on the stack
             stateStackSize: function stateStackSize() {
                 "use strict";
-                return this.conditionStack.length
+                return this.conditionStack.length;
             },
             options: {},
             performAction: function anonymous(yy, yy_, $avoiding_name_collisions, YY_START) {
@@ -4542,7 +4541,7 @@ financial: {
     },
 
     YIELDMAT : function() {
-        return
+        return;
     }
 },
     statistic: {
@@ -6201,7 +6200,7 @@ logical : {
                 };
                 plotOptions.legend = {
                     show:false
-                }
+                };
                 break;
 
             case 'doughnut':
@@ -6216,7 +6215,7 @@ logical : {
                 };
                 plotOptions.legend = {
                     show:false
-                }
+                };
                 break;
 
             default:
@@ -8344,7 +8343,7 @@ logical : {
     SELF_RENDER_FORMULA : [
         'GRAPH'
     ]
-}/**
+}; /**
  * cell hold single element with formula and value information
  * @param  {sheet}      sheet       the sheet object where the cell is belong to
  * @param  {element}    element     dom element represent the cell (optional)
@@ -8394,7 +8393,7 @@ cell.fx.init = function(){
         }
         this.sheet.counter++;
     }else{
-        $address = $address.toUpperCase()
+        $address = $address.toUpperCase();
     }
 
     /** set the formula as false if data-formula exists, but empty */
@@ -8403,7 +8402,7 @@ cell.fx.init = function(){
     }else{
         $formula = $formula.replace('&quot;', '"')
                            .replace('&#39;', "'")
-                           .replace('&#34;', '"')
+                           .replace('&#34;', '"');
     }
 
     if(tagName == 'input' && (this.el.attr('type') == 'checkbox' || this.el.attr('type') == 'radio')){
@@ -8756,7 +8755,7 @@ cell.fx.processDependant = function(){
 
 };cell.fx.hasRemoteDependency = function(status){
     if(typeof(status) == 'undefined'){
-        return this.remoteDependency
+        return this.remoteDependency;
     }else{
         this.remoteDependency = status;
     }
@@ -8810,7 +8809,7 @@ cell.fx.renderComputedValue = function(){
     }
 
     return this;
-}/**
+}; /**
  * resync cell value with element value, in case the form is reseted
  * @return {[type]} [description]
  */
@@ -8838,7 +8837,7 @@ cell.fx.resyncFormula = function(){
         this.formula = this.el.attr('data-formula');
         this.buildDependency();
     }
-}/**
+}; /**
  * find the circular reference in cell dependency tree
  * @param  {string} address     the cell address that need to be checked
  * @return {bool}               true if circular reference found, false if not found
@@ -8905,7 +8904,7 @@ cell.fx.setConditionalStyle = function(callback){
     if(typeof(callback) == 'function'){
         this.conditionalStyle = callback;
     }
-}/**
+}; /**
  * set formatting rule to the cell
  * @param {string} format       format rule to define formatting on rendered value
  */
@@ -9017,7 +9016,7 @@ cell.fx.setValue = function(value, render){
     }
 
     return returnValue;
-}/**
+}; /**
  * mark cell as affected by other cell, used to decide whether to
  * process the cell or not when processing dependency tree
  */
@@ -9037,7 +9036,7 @@ cell.fx.setProcessed = function(processed){
 
     //console.log('cell[#'+this.sheet.elementId+'!'+this.address+'] : mark as processed ['+processed+']');
     return this;
-}/**
+}; /**
  * [isProcessed description]
  * @return {Boolean} [description]
  */
@@ -9120,7 +9119,7 @@ sheet.fx.checkCircularReference = function(){
     }
 
     return response;
-}/**
+}; /**
  * mark all cell as not processed
  */
 sheet.fx.clearProcessedFlag = function(){
@@ -9266,8 +9265,8 @@ sheet.fx.buildCellDependency = function(){
         }
     }
 
-    return '#NAME?'
-};sheet.fx.getRemoteCell = function(sheet, address){
+    return '#NAME?';
+    };sheet.fx.getRemoteCell = function(sheet, address){
     var identifier = $(sheet).attr('data-calx-identifier');
 
     if(!identifier || typeof(calx.sheetRegistry[identifier]) == 'undefined'){
@@ -9435,7 +9434,7 @@ sheet.fx.calculate = function(){
  * @return {void}
  */
 sheet.fx.registerCell = function(cell){
-    var address = cell.getAddress()
+    var address = cell.getAddress();
     this.cells[address] = cell;
 
     if(typeof this.config.data[address] != 'undefined'){
@@ -9757,7 +9756,7 @@ sheet.fx.detachEvent = function(){
     this.el.off('calx.renderComputedValue');
     this.el.off('calx.calculateSheet');
     this.el.off('calx.calculateCellDependant');
-}    /**
+}; /**
      * [calx : the calx core object to work with jquery as plugin]
      * @type {Object}
      */

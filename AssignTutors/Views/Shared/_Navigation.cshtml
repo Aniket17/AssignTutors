@@ -34,7 +34,7 @@
                     <a href="#calculator">LIVE CALCULATOR</a>
                 </li>
                 <li class="page-scroll">
-                    <a href="#LIVECHAT" onclick=" showChatBox() ">LIVE CHAT</a>
+                    <a href="#livechat" onclick="return showChatBox()">LIVE CHAT</a>
                 </li>
                 <li class="page-scroll">
                     <a href="#contact">CONTACT US</a>
@@ -48,9 +48,17 @@
 
 <script>
     function showChatBox() {
-        
-          
-        $('#chat-box-header').show();
+        debugger;
+        var elm = $('#chat-box-header');
+        if ($('#chat-box').hasClass('chat-open')) {
+            $('#chat-box').removeClass('chat-open');
+            elm.css('bottom', '0px');
+        } else {
+            var y = 301 + elm.height();
+            $('#chat-box').addClass('chat-open');
+            elm.css('bottom', 300);
+        }
+        $('#chat-box').slideToggle();
 
     }
 </script>

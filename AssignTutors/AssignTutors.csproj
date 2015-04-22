@@ -143,6 +143,9 @@
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\freelancer.css" />
+    <Content Include="Content\css\freelancer_main.css" />
+    <Content Include="Content\css\generic.css" />
+    <Content Include="Content\css\style.css" />
     <Content Include="Content\font-awesome\css\font-awesome.css" />
     <Content Include="Content\font-awesome\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome\fonts\fontawesome-webfont.svg" />
@@ -181,6 +184,8 @@
     <Content Include="Content\img\portfolio\submarine.png" />
     <Content Include="Content\img\profile.png" />
     <Content Include="Content\img\school-pic.jpg" />
+    <Content Include="Content\img\select-arrow-close.png" />
+    <Content Include="Content\img\select-arrow-open.png" />
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\cbpAnimatedHeader.js" />
@@ -201,6 +206,8 @@
     <Content Include="Content\js\library\numeral-1.4.9.js" />
     <Content Include="Content\js\library\parser-1.1.2.js" />
     <Content Include="Content\js\modernizr.js" />
+    <Content Include="Content\js\select.js" />
+    <Content Include="Content\js\select_demo2.js" />
     <Content Include="Content\mail\contact_me.php" />
     <Content Include="Content\main.css" />
     <Content Include="Global.asax" />

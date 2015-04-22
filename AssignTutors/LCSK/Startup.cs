@@ -1,9 +1,8 @@
-using System;
-using System.Threading.Tasks;
+using AssignTutors.LCSK;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(AssignTutors.LCSK.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 
 namespace AssignTutors.LCSK
 {

@@ -1,17 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.SignalR.Hubs;
-using System.Threading.Tasks;
-using System.IO;
-using System.Security.Cryptography;
-using System.Text;
-using System.Net.Mail;
 using System.Collections.Concurrent;
 using System.Diagnostics;
-
+using System.IO;
+using System.Linq;
+using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+using Microsoft.AspNet.SignalR;
 
 namespace AssignTutors.LCSK
 {
@@ -59,7 +56,7 @@ namespace AssignTutors.LCSK
             }
             else if ((config[0] == hashPass) || (config[1] == hashPass))
             {
-                var agent = new Agent()
+                var agent = new Agent
                 {
                     Id = Context.ConnectionId,
                     Name = name,
@@ -165,8 +162,7 @@ namespace AssignTutors.LCSK
                            where a.Value.IsOnline
                            select new
                            {
-                               Id = a.Value.Id,
-                               Name = a.Value.Name,
+                               a.Value.Id, a.Value.Name,
                                Count = ChatSessions.Count(x => x.Value == a.Value.Id)
                            };
 
@@ -250,8 +246,7 @@ namespace AssignTutors.LCSK
                                where a.Value.IsOnline
                                select new
                                {
-                                   Id = a.Value.Id,
-                                   Name = a.Value.Name,
+                                   a.Value.Id, a.Value.Name,
                                    Count = ChatSessions.Count(x => x.Value == a.Value.Id)
                                };
 

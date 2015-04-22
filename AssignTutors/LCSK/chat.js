@@ -18,15 +18,15 @@ var LCSKChat = function () {
         options.placement = 'bottom-right';
 
         options.headerPaddings = '3px 10px 3px 10px';
-        options.headerBackgroundColor = '#0376ee';
+        options.headerBackgroundColor = '#233140';
         options.headerTextColor = 'white';
-        options.headerBorderColor = '#0354cb';
-        options.headerGradientStart = '#058bf5';
-        options.headerGradientEnd = '#015ee6';
+        options.headerBorderColor = 'rgb(44, 62, 80)';
+        options.headerGradientStart = 'rgb(156, 172, 187)';
+        options.headerGradientEnd = 'rgb(44, 62, 80)';
         options.headerFontSize = '15px';
 
-        options.boxBorderColor = '#0376ee';
-        options.boxBackgroundColor = '#fff';
+        options.boxBorderColor = 'rgb(44, 62, 80)';
+        options.boxBackgroundColor = 'rgb(246, 246, 246)';
 
         options.width = 250;
 
@@ -62,8 +62,10 @@ var LCSKChat = function () {
         $('body').append(
             //'<div id="chat-box-header" style="display: block;position:' + options.position + ';' + getPlacement() + 'width:' + options.width + 'px;padding:' + options.headerPaddings + ';color:' + options.headerTextColor + ';font-size:' + options.headerFontSize + ';cursor:pointer;background:' + options.headerBackgroundColor + ';filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' + options.headerGradientStart + '\', endColorstr=\'' + options.headerGradientEnd + '\');background: -webkit-gradient(linear, left top, left bottom, from(' + options.headerGradientStart + '), to(' + options.headerGradientEnd + '));background: -moz-linear-gradient(top,  ' + options.headerGradientStart + ',  ' + options.headerGradientEnd + ');border:1px solid ' + options.headerBorderColor + ';box-shadow:inset 0 0 7px #0354cb;-webkit-box-shadow:inset 0 0 7px #0354cb;border-radius: 5px;">' + options.offlineTitle + '</div>' +
             //'<div id="chat-box" style="display:none;position:' + options.position + ';' + getPlacement() + 'width:' + options.width + 'px;height:300px;padding: 10px 10px 10px 10px;border: 1px solid ' + options.boxBorderColor + ';background-color:' + options.boxBackgroundColor + ';font-size:small;"></div>'
-            '<div id="chat-box-header" style="display: block;position:' + options.position + ';' + getPlacement() + 'width:' + options.width + 'px;padding:' + options.headerPaddings + ';color:' + options.headerTextColor + ';font-size:' + options.headerFontSize + ';cursor:pointer;background:' + options.headerBackgroundColor + ';filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' + options.headerGradientStart + '\', endColorstr=\'' + options.headerGradientEnd + '\');background: -webkit-gradient(linear, left top, left bottom, from(' + options.headerGradientStart + '), to(' + options.headerGradientEnd + '));background: -moz-linear-gradient(top,  ' + options.headerGradientStart + ',  ' + options.headerGradientEnd + ');border:1px solid ' + options.headerBorderColor + ';box-shadow:inset 0 0 7px #0354cb;-webkit-box-shadow:inset 0 0 7px #0354cb;border-top-left-radius: 5px;border-top-right-radius: 5px;">' + options.offlineTitle + '</div>' +
-            '<div id="chat-box" style="display:none;position:' + options.position + ';' + getPlacement() + 'width:' + options.width + 'px;height:300px;padding: 10px 10px 10px 10px;border: 1px solid ' + options.boxBorderColor + ';background-color:' + options.boxBackgroundColor + ';opacity: 0.8;font-size:14px !important;color: black !important;"></div>'
+          
+          '<style>p{font-size: 15px;}</style>' +
+            '<div id="chat-box-header" style="display: block;position:' + options.position + ';' + getPlacement() + 'width:' + options.width + 'px;padding:' + options.headerPaddings + ';color:' + options.headerTextColor + ';font-size:' + options.headerFontSize + ';cursor:pointer;background:' + options.headerBackgroundColor + ';filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=\'' + options.headerGradientStart + '\', endColorstr=\'' + options.headerGradientEnd + '\');background: -webkit-gradient(linear, left top, left bottom, from(' + options.headerGradientStart + '), to(' + options.headerGradientEnd + '));background: -moz-linear-gradient(top,  ' + options.headerGradientStart + ',  ' + options.headerGradientEnd + ');border:1px solid ' + options.headerBorderColor + ';box-shadow:inset 0 0 7px rgb(41, 42, 44);-webkit-box-shadow:inset 0 0 7px rgb(41, 42, 44);border-top-left-radius: 5px;border-top-right-radius: 5px; z-index:1000">' + options.offlineTitle + '</div>' +
+            '<div id="chat-box" style="display:none;position:' + options.position + ';' + getPlacement() + 'width:' + options.width + 'px;height:300px;padding: 10px 10px 10px 10px;border: 1px solid ' + options.boxBorderColor + ';background-color:' + options.boxBackgroundColor + ';opacity: 1;font-size:14px !important;color: black !important;"></div>'
         );
 
         $.connection.hub.start()
@@ -140,6 +142,7 @@ var LCSKChat = function () {
     }
 
     function toggleChatBox() {
+        debugger;
         var elm = $('#chat-box-header');
         if ($('#chat-box').hasClass('chat-open')) {
             $('#chat-box').removeClass('chat-open');
@@ -147,7 +150,7 @@ var LCSKChat = function () {
         } else {
             var y = 301 + elm.height();
             $('#chat-box').addClass('chat-open');
-            elm.css('bottom', y);
+            elm.css('bottom', 300);
         }
         $('#chat-box').slideToggle();
     }
@@ -202,8 +205,7 @@ var LCSKChat = function () {
 
             $("#chat-box-msg").scrollTop($("#chat-box-msg")[0].scrollHeight);
         }
-    }
-
+    };
     myHub.client.emailResult = function (state) {
         if (!state) {
             $('#chat-box').html(options.emailFailed);
@@ -217,5 +219,5 @@ var LCSKChat = function () {
     return {
         config: config,
         init: init
-    }
+    };
 } ();
